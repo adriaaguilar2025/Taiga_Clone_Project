@@ -1,19 +1,43 @@
 # ASW Taiga Issue Tracker
 
-
 ## 🌐 Language / Idioma
-* [Català (Versió original)](README.md)
+* [Català (Original version)](README.md)
 * English (Current version)
-
 ---
 
-Web application for issue management and tracking (Issue Tracker) inspired by Taiga, developed for the Web Applications and Services (ASW) course.
+<div align="center">
+  <h1>ASW Taiga Issue Tracker</h1>
+  <p><em>Web application for issue management and tracking inspired by Taiga.</em></p>
 
-🌍 **Production Environment (Render):** [https://taiga-app.onrender.com](https://taiga-app.onrender.com)
+  <img src="https://img.shields.io/badge/Ruby-CC342D?style=flat-square&logo=ruby&logoColor=white" alt="Ruby" />
+  <img src="https://img.shields.io/badge/Rails-CC0000?style=flat-square&logo=ruby-on-rails&logoColor=white" alt="Rails" />
+  <img src="https://img.shields.io/badge/PostgreSQL-316192?style=flat-square&logo=postgresql&logoColor=white" alt="Postgres" />
+  <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white" alt="Docker" />
+  <img src="https://img.shields.io/badge/Render-46E3B7?style=flat-square&logo=render&logoColor=white" alt="Render" />
+</div>
 
-🌲 **Official Taiga:** [Project at tree.taiga.io](https://tree.taiga.io/project/victorsalinasmontanuy-asw2526q2-it212)
+<br />
+
+Project developed for the Web Applications and Services (ASW) course at the Universitat Politècnica de Catalunya (UPC). This project replicates the core features of a professional Issue Tracker, implementing a robust RESTful API and a scalable architecture.
+
+🌍 **Production Environment to test the App:** [Taiga App (Render)](https://taiga-app.onrender.com) *(Note: The server may take a few seconds to spin up due to free tier policies).*
+
+🌲 **Organization:** [Project Organization on Taiga](https://tree.taiga.io/project/victorsalinasmontanuy-asw2526q2-it212)
 
 **Stack:** Ruby on Rails · PostgreSQL · Google OAuth2 · Docker · S3 Active Storage
+
+---
+## ✨ Project Demonstration
+
+The following video (1:30 min) showcases the application's complete main workflow:
+
+https://github.com/user-attachments/assets/1831e4b5-19a0-4d83-a993-08b70420b00b
+
+*(Note: Features such as View Profile or Bulk Insert, among others, are excluded from the Main Workflow video but are fully implemented).*
+
+The following image displays the profile view of another member:
+
+<img src="https://github.com/user-attachments/assets/3bad8143-0b86-4692-b960-77dc38f6c3ec" alt="Profile" width="800" />
 
 ---
 

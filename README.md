@@ -5,15 +5,42 @@
 * [English (English version)](README.en.md)
 ---
 
-Aplicació web per a la gestió i seguiment d'incidències (Issue Tracker) inspirada en Taiga, desenvolupada per a l'assignatura d'Aplicacions i Serveis Web (ASW). 
+<div align="center">
+  <h1>ASW Taiga Issue Tracker</h1>
+  <p><em>Aplicació web per a la gestió i seguiment d'incidències inspirada en Taiga.</em></p>
 
-🌍 **Entorn de Producció per probar l'App (Render):** [https://taiga-app.onrender.com](https://taiga-app.onrender.com)
+  <img src="https://img.shields.io/badge/Ruby-CC342D?style=flat-square&logo=ruby&logoColor=white" alt="Ruby" />
+  <img src="https://img.shields.io/badge/Rails-CC0000?style=flat-square&logo=ruby-on-rails&logoColor=white" alt="Rails" />
+  <img src="https://img.shields.io/badge/PostgreSQL-316192?style=flat-square&logo=postgresql&logoColor=white" alt="Postgres" />
+  <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white" alt="Docker" />
+  <img src="https://img.shields.io/badge/Render-46E3B7?style=flat-square&logo=render&logoColor=white" alt="Render" />
+</div>
 
-🌲 **Taiga Oficial:** [Projecte a tree.taiga.io](https://tree.taiga.io/project/victorsalinasmontanuy-asw2526q2-it212)
+<br />
+
+Projecte desenvolupat per a l'assignatura d'Aplicacions i Serveis Web (ASW) a la Universitat Politècnica de Catalunya (UPC). Aquest projecte replica les funcionalitats core d'un Issue Tracker profesional, implementant una API RESTful robusta i una arquitectura escalable.
+
+🌍 **Entorn de Producció per probar l'App:** [Taiga App (Render)](https://taiga-app.onrender.com) *(Nota: El servidor pot trigar uns segons a arrencar per les polítiques del tier gratuït).*
+
+🌲 **Organització:** [Organització del projecte a Taiga](https://tree.taiga.io/project/victorsalinasmontanuy-asw2526q2-it212)
 
 **Stack:** Ruby on Rails · PostgreSQL · Google OAuth2 · Docker · S3 Active Storage
 
 ---
+## ✨ Demostració del Projecte
+
+En el següent vídeo (1:30 min) es mostra el flux principal complet de l'aplicació:
+
+https://github.com/user-attachments/assets/1831e4b5-19a0-4d83-a993-08b70420b00b
+
+*(Nota: Funcionalitats com Visualitzar Perfil o Bulk Insert entre altres queden fora del Flux Principal del projecte pero estàn implementades).*
+
+En la següent imatge es pot apreciar la visualització d'un Perfil que no es el nostre:
+
+<img src="https://github.com/user-attachments/assets/3bad8143-0b86-4692-b960-77dc38f6c3ec" alt="Perfil" width="800" />
+
+---
+
 ## 🚀 Funcionalitats del Projecte
 
 L'aplicació replica el nucli d'un Issue Tracker estil Taiga, adaptat amb regles de negoci específiques per a l'assignatura. Les característiques estan dividides en tres blocs principals:
