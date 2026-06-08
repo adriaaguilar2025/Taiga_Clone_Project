@@ -9,6 +9,39 @@ Aplicació web per a la gestió i seguiment d'incidències (Issue Tracker) inspi
 **Stack:** Ruby on Rails · PostgreSQL · Google OAuth2 · Docker · S3 Active Storage
 
 ---
+## 🚀 Funcionalitats del Projecte
+
+L'aplicació replica el nucli d'un Issue Tracker estil Taiga, adaptat amb regles de negoci específiques per a l'assignatura. Les característiques estan dividides en tres blocs principals:
+
+### 1. Gestió d'Issues (Incidències)
+*   **Cicle de vida complet:** Creació, visualització, edició i esborrat d'issues. Per seguretat, **només el creador** de la incidència té permisos per editar-la o eliminar-la.
+*   **Assignació directa:** Selector directe integrat a la vista per assignar de manera immediata una issue a qualsevol membre de l'equip.
+*   **File Attachments (Fitxers adjunts):** Pujada de fitxers mitjançant un botó d'acció directa i llistat senzill associat a la incidència. Només el creador de l'atttachment el pot eliminar (emmagatzemats de forma persistent a un **Bucket S3 d'AWS** via Active Storage).
+*   **Comentaris i Activitat:** Sistema de discussió integrat (afegir, llistar, editar i esborrar comentaris, restringit al seu autor). Inclou un **historial d'Activities** cronològic per a cada issue.
+*   **Cerca i Filtratge Avançat:**
+    *   Filtres de tipus "include" per acotar els llistats.
+    *   Cerca textual sobre els camps *Subject* (Assumpte) i *Description* que s'executa sota demanda en prémer el botó de cerca.
+*   **Bulk Insert:** Funcionalitat per a la creació massiva d'issues de cop per agilitzar la feina.
+*   **Deadlines i Watchers:** Control de dates límit (afegir, visualitzar i eliminar terminis) i sistema de subscripció (Watch/Unwatch) per seguir incidències.
+
+### 2. Control d'Usuaris i Perfils
+*   **Autenticació Externa (Social Login):** Sistema de registre i login unificat a través de **Google OAuth2**. El compte d'usuari es crea automàticament a la base de dades en fer el primer "Sign In".
+*   **Pàgines de Perfil Públiques:** Qualsevol usuari pot visitar el perfil d'un altre membre, on es renderitzen tres pestanyes dinàmiques:
+    *   **Open Assigned Issues:** Incidències obertes assignades a l'usuari (ordenables per *type*, *severity*, *issue #*, *status* i *modified*).
+    *   **Watched Issues:** Llistat de les incidències que l'usuari està seguint (visible **únicament** si el perfil correspon a l'usuari loguejat actualment).
+    *   **Comments:** Historial de comentaris realitzats, ordenats de més recents a menys. Inclouen enllaços directes amb ancoratge (anchor) que et porten exactament a la posició del comentari dins de l'issue, així com botons d'edició ràpida.
+*   **Edició del Perfil:** L'usuari pot personalitzar la seva biografia i la seva imatge de perfil (Avatar), la qual es gestiona també directament a l'emmagatzematge al núvol.
+
+### 3. Configuració del Projecte (Settings)
+*   Panell d'administració centralitzat de l'entorn de treball on es permet llistar, crear, modificar i eliminar els camps mestres i atributs globals del projecte:
+    *   *Statuses* (Estats de les incidències)
+    *   *Priorities* (Prioritats)
+    *   *Types* (Tipus)
+    *   *Severities* (Severitats)
+    *   *Tags* (Etiquetes)
+    *   *Due dates*
+
+---
 
 ## Requisits previs
 
@@ -25,8 +58,8 @@ Aplicació web per a la gestió i seguiment d'incidències (Issue Tracker) inspi
 
 ```bash
 # 1. Clonar el repositori
-git clone [URL_DEL_TEU_REPOSITORI]
-cd ASW_Taiga_Project
+git clone https://github.com/adriaaguilar2025/Taiga_Clone_Project.git
+cd Taiga_Clone_Project
 
 # 2. Instal·lar dependències
 bundle install
