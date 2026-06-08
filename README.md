@@ -1,8 +1,13 @@
 # ASW Taiga Issue Tracker
 
-Aplicació web per a la gestió i seguiment d'incidències (Issue Tracker) inspirada en Taiga, desenvolupada per a l'assignatura d'Arquitectura de Programari i Web (ASW). 
+## 🌐 Idioma / Language
+* Català (Versió actual)
+* [English (English version)](README.en.md)
+---
 
-🌍 **Entorn de Producció (Render):** [https://taiga-app.onrender.com](https://taiga-app.onrender.com)
+Aplicació web per a la gestió i seguiment d'incidències (Issue Tracker) inspirada en Taiga, desenvolupada per a l'assignatura d'Aplicacions i Serveis Web (ASW). 
+
+🌍 **Entorn de Producció per probar l'App (Render):** [https://taiga-app.onrender.com](https://taiga-app.onrender.com)
 
 🌲 **Taiga Oficial:** [Projecte a tree.taiga.io](https://tree.taiga.io/project/victorsalinasmontanuy-asw2526q2-it212)
 

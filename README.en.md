@@ -1,0 +1,165 @@
+# ASW Taiga Issue Tracker
+
+
+## 🌐 Language / Idioma
+* [Català (Versió original)](README.md)
+* English (Current version)
+
+---
+
+Web application for issue management and tracking (Issue Tracker) inspired by Taiga, developed for the Web Applications and Services (ASW) course.
+
+🌍 **Production Environment (Render):** [https://taiga-app.onrender.com](https://taiga-app.onrender.com)
+
+🌲 **Official Taiga:** [Project at tree.taiga.io](https://tree.taiga.io/project/victorsalinasmontanuy-asw2526q2-it212)
+
+**Stack:** Ruby on Rails · PostgreSQL · Google OAuth2 · Docker · S3 Active Storage
+
+---
+
+## 🚀 Project Features
+
+The application replicates the core of a Taiga-style Issue Tracker, adapted with specific business rules for the course. The features are divided into three main blocks:
+
+### 1. Issue Management
+* **Full Lifecycle:** Creation, visualization, editing, and deletion of issues. For security reasons, **only the creator** of the issue has permissions to edit or delete it.
+* **Direct Assignment:** A direct selector integrated into the view to immediately assign an issue to any team member.
+* **File Attachments:** File upload via a direct action button and a simple list associated with the issue. Only the creator of the attachment can delete it (persistently stored in an **AWS S3 Bucket** via Active Storage).
+* **Comments and Activity:** Integrated discussion system (add, list, edit, and delete comments, restricted to their author). Includes a chronological **Activities history** for each issue.
+* **Advanced Search and Filtering:** * "Include" type filters to narrow down lists.
+    * Text search across *Subject* and *Description* fields, executed on-demand when clicking the search button.
+* **Bulk Insert:** Feature for mass creation of issues to streamline workflow.
+* **Deadlines and Watchers:** Due date control (add, view, and remove deadlines) and subscription system (Watch/Unwatch) to follow issues.
+
+### 2. User Control and Profiles
+* **External Authentication (Social Login):** Unified registration and login system via **Google OAuth2**. The user account is automatically created in the database upon the first "Sign In".
+* **Public Profile Pages:** Any user can visit another member's profile, which renders three dynamic tabs:
+    * **Open Assigned Issues:** Open issues assigned to the user (sortable by *type*, *severity*, *issue #*, *status*, and *modified*).
+    * **Watched Issues:** List of issues the user is following (visible **only** if the profile matches the currently logged-in user).
+    * **Comments:** History of comments made by the user, sorted from newest to oldest. Includes direct anchor links that take you exactly to the comment's position within the issue, as well as quick-edit buttons.
+* **Profile Editing:** Users can customize their bio and profile picture (Avatar), which is also managed directly through cloud storage.
+
+### 3. Workspace Configuration (Settings)
+* Centralized administration panel for the workspace, allowing users to list, create, modify, and delete master fields and global project attributes:
+    * *Statuses*
+    * *Priorities*
+    * *Types*
+    * *Severities*
+    * *Tags*
+    * *Due dates*
+
+---
+
+## Prerequisites
+
+| Tool | Minimum Version |
+|------|---------------|
+| [Ruby](https://www.ruby-lang.org/en/downloads/) | 3.3.6 |
+| [Rails](https://rubyonrails.org/) | 7.1.3 |
+| SQLite3 | - |
+| [Docker](https://www.docker.com/) *(optional, for deployment)* | 24+ |
+
+---
+
+## Local Installation
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/adriaaguilar2025/Taiga_Clone_Project.git
+cd Taiga_Clone_Project
+
+# 2. Install dependencies
+bundle install
+
+# 3. Configure environment variables
+# Create a .env file at the root of the project and add your credentials
+# for authentication (Google) and cloud storage (AWS S3):
+
+#   GOOGLE_CLIENT_ID=your_client_id
+#   GOOGLE_CLIENT_SECRET=your_client_secret
+#
+#   AWS_ACCESS_KEY_ID=your_access_key
+#   AWS_SECRET_ACCESS_KEY=your_secret_key
+#   AWS_SESSION_TOKEN=your_temporary_session_token
+#   AWS_REGION=us-east-1
+#   AWS_BUCKET=aswtaiga-bucket
+
+# 4. Prepare the database (creation and migrations)
+rails db:prepare
+
+# 5. Run the application
+bin/rails server -b 0.0.0.0
+
+```
+
+---
+
+## 🔌 REST API (Second Delivery)
+
+The project includes a Level 2 REST API (Richardson Maturity Model) to manage issues, users, comments, and file attachments.
+
+* **Documentation (OpenAPI):** You can find the full specification in the `/api/api.yml` file.
+* **How to test it:**
+
+    1. Go to [Swagger Editor](https://editor.swagger.io/) and load our `api.yml` file.
+
+    2. Register or log in to our [App on Render](https://taiga-app.onrender.com).
+
+    3. Go to your Profile to copy your **API Key**.
+
+    4. In Swagger, click on "Authorize" and paste the key into the header to start making requests.
+
+---
+
+## Project Structure
+```
+ASW_Taiga_Project/
+├── app/
+│   ├── controllers/      # Business logic and route protection (e.g., authenticate_user!)
+│   ├── models/           # Data models (Issue, User, Status, Priority, Tags, Comments...)
+│   ├── views/            # Dynamic views (ERB) with filtering and listings
+│   └── assets/           # Stylesheets and manifest configurations
+├── config/
+│   ├── routes.rb         # HTTP endpoints definition
+│   ├── database.yml      # Configuration for SQLite (Local) and PostgreSQL (Production)
+│   └── initializers/     # Boot configurations (e.g., omniauth.rb for Google)
+├── db/                   # Migrations and schema.rb file
+├── Dockerfile            # Build recipe for the production environment
+└── bin/docker-entrypoint # Automatic startup and migration script on the server
+```
+
+---
+
+## CD
+
+- **CD** (`.github/workflows/cd.yml`): Runs on merge to `main`. Deployment to production is fully automated. The repository's Dockerfile is used to build an optimized image that runs on Render, connected to a PostgreSQL database.
+
+---
+
+## Key Technologies
+
+| Layer | Technology |
+|------|-----------|
+| Web Framework | Ruby on Rails 7.1.3 |
+| Language | Ruby 3.3.6 |
+| DB (Local) | SQLite3 |
+| DB (Production) | PostgreSQL |
+| Authentication | Google OAuth2 (OmniAuth) |
+| File Management | Active Storage (AWS S3 ready) |
+| Environment/Containers | Docker |
+| Hosting | Render |
+
+---
+
+## Team
+
+| Name |
+|-----|
+| Clàudia Galán Rodoreda |
+| Sergi Malaguilla Bombín |
+| Adrià Aguilar Garcia |
+| Victor Salinas Montanuy |
+
+**Professor:** Quim Motger De La Encarnacion  
+**Course:** Web Applications and Services — Degree in Informatics Engineering (UPC)  
+**Term:** Spring Semester, academic year 2025/26
